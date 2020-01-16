@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("../img/bg.jpg");
+    background-size: inherit;
+    background-repeat: no-repeat;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.lav{
+    background-color: lavender;
+}
+
+.or{
+    background-color: orange;
+}
+
+.emoji{
+    font-size: 150px;
+}
