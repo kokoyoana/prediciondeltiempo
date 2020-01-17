@@ -82,18 +82,18 @@ $(document).ready(function () {
       $("#dia1").html(respuesta.name);
       $.each(respuesta.list, function (indice, valor) {
 
-        $("#dia1").html(Math.round(Math.min(respuesta.list[0].main.temp_min, respuesta.list[1].main.temp_min, respuesta.list[2].main.temp_min, respuesta.list[3].main.temp_min,
+        $("weekDayTempMin1").html(Math.round(Math.min(respuesta.list[0].main.temp_min, respuesta.list[1].main.temp_min, respuesta.list[2].main.temp_min, respuesta.list[3].main.temp_min,
           respuesta.list[4].main.temp_min, respuesta.list[5].main.temp_min, respuesta.list[6].main.temp_min, respuesta.list[7].main.temp_min)));
 
-        $("#dia2").html(Math.round(Math.min(respuesta.list[8].main.temp_min, respuesta.list[9].main.temp_min, respuesta.list[10].main.temp_min, respuesta.list[11].main.temp_min,
+        $("weekDayTempMin2").html(Math.round(Math.min(respuesta.list[8].main.temp_min, respuesta.list[9].main.temp_min, respuesta.list[10].main.temp_min, respuesta.list[11].main.temp_min,
           respuesta.list[12].main.temp_min, respuesta.list[13].main.temp_min, respuesta.list[14].main.temp_min, respuesta.list[15].main.temp_min)));
 
-        $("#dia3").html(Math.round(Math.min(respuesta.list[16].main.temp_min, respuesta.list[17].main.temp_min, respuesta.list[18].main.temp_min, respuesta.list[19].main.temp_min,
+        $("weekDayTempMin3").html(Math.round(Math.min(respuesta.list[16].main.temp_min, respuesta.list[17].main.temp_min, respuesta.list[18].main.temp_min, respuesta.list[19].main.temp_min,
           respuesta.list[20].main.temp_min, respuesta.list[21].main.temp_min, respuesta.list[22].main.temp_min, respuesta.list[23].main.temp_min)));
 
-        $("#dia4").html(Math.round(Math.min(respuesta.list[24].main.temp_min, respuesta.list[25].main.temp_min, respuesta.list[26].main.temp_min, respuesta.list[27].main.temp_min,
+        $("weekDayTempMin4").html(Math.round(Math.min(respuesta.list[24].main.temp_min, respuesta.list[25].main.temp_min, respuesta.list[26].main.temp_min, respuesta.list[27].main.temp_min,
           respuesta.list[28].main.temp_min, respuesta.list[29].main.temp_min, respuesta.list[30].main.temp_min, respuesta.list[31].main.temp_min)));
 
-        $("#dia5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
+        $("weekDayTempMin5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
           respuesta.list[36].main.temp_min, respuesta.list[37].main.temp_min, respuesta.list[38].main.temp_min, respuesta.list[39].main.temp_min)));
 
