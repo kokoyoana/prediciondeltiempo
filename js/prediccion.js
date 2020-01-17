@@ -1,16 +1,29 @@
 $(document).ready(function () {
   $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/find?q=Comunidad de Madrid&units=metric&APPID=5134da6df3842f1a831f92efeeb782c1",
+    url: "http://api.openweathermap.org/data/2.5/weather?id=3117732&APPID=5134da6df3842f1a831f92efeeb782c1",
     datatype: "json",
     type: "GET",
     success: function (respuesta) {
       console.log(respuesta);
-      // $("#dia1").html(respuesta.name);
-      $.each(respuesta.list, function (indice, valor) {
-        $("#dia").html(valor.name + "<br>" + valor.id);
-        $("#dia1").html("Temperatura Actual: " + valor.main.temp + "<br>" + "Temperatura Mínima: " + valor.main.temp_min + "<br>" + "Temperatura Maxima: " + valor.main.temp_max);
+      tempInC = (respuesta.main.temp -273).toFixed(0);
+      /*feelsLikeInF = ((weatherData.currently.apparentTemperature * 9 / 5) + 32).toFixed(2); */
+      $(".locName").html(respuesta.name);
+      $(".currentTemp").html(tempInC);
+      $(".todaySummary").html(respuesta.weather[0].description);
 
-      });
+      /* $.each(respuesta, function (indice, valor) {
+        
+        $(".currentTemp").html(valor.temp);
+        $(".weatherCondition").html(valor.weather);
+        $(".feelsLike").html(valor.main.feels_like + " °C");
+        $(".humidity").html((valor.main.humidity * 100).toFixed(0));
+        $(".windSpeed").html((valor.wind.Speed / 0.6213).toFixed(2));
+
+        $(".todaySummary").html(valor.weather);
+        $(".tempMin").html(valor.main.temp_min + " °C");
+        $(".tempMax").html(valor.main.temp_max + " °C");
+          
+      }); */
     }
     /* error: function(jqXHR, textStatus, errorThrown){
        console.log("ERROR MIO:  " + errorThrown);
@@ -18,9 +31,9 @@ $(document).ready(function () {
 
   });
 
-
-
 });
+
+
 $(document).ready(function () {
   $.ajax({
     url: "http://api.openweathermap.org/data/2.5/forecast?id=3117732&APPID=5134da6df3842f1a831f92efeeb782c1",
