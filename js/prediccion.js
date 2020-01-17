@@ -97,3 +97,15 @@ $(document).ready(function () {
         $("#dia5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
           respuesta.list[36].main.temp_min, respuesta.list[37].main.temp_min, respuesta.list[38].main.temp_min, respuesta.list[39].main.temp_min)));
 
+
+        });
+      }
+      /* error: function(jqXHR, textStatus, errorThrown){
+         console.log("ERROR MIO:  " + errorThrown);
+       }*/
+  
+    });
+  
+  
+  });
+  
