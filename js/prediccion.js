@@ -17,15 +17,35 @@ $(document).ready(function () {
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
-      
-      
-      var icons = new Skycons({
+      icons = new Skycons({
         "color": "white"
       });
+      weatherI = (respuesta.weather[0].icon);
+      if (weatherI == "02d") {
+        
+        icons.set("weatherIcon", Skycons.CLEAR_DAY);
+      } /* else if (weatherI == "04d") {
+        icons.set("weatherIcon", Skycons.CLEAR_NIGHT);
+      } else if (weatherI == "02d" || weatherI == "03d") {
+        icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_DAY);
+      } else if (weatherI == "02n" || weatherI == "03n") {
+        icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_NIGHT);
+      }; */
 
-      icons.set("clear-day", Skycons.CLEAR_DAY);
+      },
+  })
+
+});
+
+
+
+
+
+
+
+     // icons.set("clear-day", Skycons.CLEAR_DAY);
       //skycons.set("expectIcon", weatherData.hourly.icon);
-      icons.play();
+      //icons.play();
 
       /* date=(respuesta.sys.sunrise);
       hour=date.getUTCHours() + ":" + date.getUTCMinutes();
@@ -33,61 +53,8 @@ $(document).ready(function () {
  */
 
 
-
-      /* $.each(respuesta, function (indice, valor) {
-        
-        $(".currentTemp").html(valor.temp);
-        $(".weatherCondition").html(valor.weather);
-        $(".feelsLike").html(valor.main.feels_like + " °C");
-        $(".humidity").html((valor.main.humidity * 100).toFixed(0));
-        $(".windSpeed").html((valor.wind.Speed / 0.6213).toFixed(2));
-
-        $(".todaySummary").html(valor.weather);
-        $(".tempMin").html(valor.main.temp_min + " °C");
-        $(".tempMax").html(valor.main.temp_max + " °C");
-
-        switch (weather.main) {
-          case 'Clear':
-            $("i").addClass("wi-day-sunny");
-            break;
-          case 'Clouds':
-            $("i").addClass("wi-cloud");
-            break;
-          case 'Rain':
-            $("i").addClass("wi-rain");
-            break;
-          case 'Snow':
-            $("i").addClass("wi-snow");
-            break;
-          case 'Drizzle':
-            $("i").addClass("wi-raindrops");
-            break;
-          case 'Thunderstom':
-            $("i").addClass("wi-thunderstorm");
-            break;
-          case 'Mist':
-            $("i").addClass("wi-fog");
-            break;
-          default:
-            $("i").addClass("wi-na");
-        }
-
-        var skycons = new Skycons({
-          "color": "white"
-        });
-
-        //Skycon Icons
-        skycons.set("weatherIcon", weatherData.currently.icon);
-        skycons.set("expectIcon", weatherData.hourly.icon);
-        skycons.play();
           
-      }); */
-    }
-
-  });
-
-});
-
+ 
 
 $(document).ready(function () {
   $.ajax({
