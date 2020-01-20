@@ -97,7 +97,6 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       $.each(respuesta.list, function (indice, valor) {
-<<<<<<< HEAD
         $(".weekDayWind1").html(respuesta.list[0].wind.speed);
         $(".weekDayWind2").html(respuesta.list[1].wind.speed);
         $(".weekDayWind3").html(respuesta.list[2].wind.speed);
@@ -115,9 +114,7 @@ $(document).ready(function () {
         $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
        
 
-=======
     
->>>>>>> b8e9930e86e3c5d9030cb49d8b416b2a1aabd261
         $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
           respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max) - 273).toFixed(0));
 
