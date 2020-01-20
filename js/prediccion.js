@@ -42,7 +42,7 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       $.each(respuesta.list, function (indice, valor) {
-
+    
         $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
           respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max)-273).toFixed(0));
 
