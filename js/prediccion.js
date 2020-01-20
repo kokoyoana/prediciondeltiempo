@@ -6,9 +6,12 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       tempInC = (respuesta.main.temp -273).toFixed(0);
-      /*feelsLikeInF = ((weatherData.currently.apparentTemperature * 9 / 5) + 32).toFixed(2); */
+      feelsLikeInF = (respuesta.main.feels_like - 273).toFixed(0);
       $(".locName").html(respuesta.name);
+      $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
+      $(".feelsLike").html(feelsLikeInF + " °C");
+      $(".windSpeed").html((respuesta.wind.Speed);
       $(".todaySummary").html(respuesta.weather[0].description);
 
       /* $.each(respuesta, function (indice, valor) {
