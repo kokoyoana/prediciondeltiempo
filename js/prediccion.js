@@ -22,6 +22,41 @@ $(document).ready(function () {
         $(".todaySummary").html(valor.weather);
         $(".tempMin").html(valor.main.temp_min + " °C");
         $(".tempMax").html(valor.main.temp_max + " °C");
+
+        switch (weather.main) {
+          case 'Clear':
+            $("i").addClass("wi-day-sunny");
+            break;
+          case 'Clouds':
+            $("i").addClass("wi-cloud");
+            break;
+          case 'Rain':
+            $("i").addClass("wi-rain");
+            break;
+          case 'Snow':
+            $("i").addClass("wi-snow");
+            break;
+          case 'Drizzle':
+            $("i").addClass("wi-raindrops");
+            break;
+          case 'Thunderstom':
+            $("i").addClass("wi-thunderstorm");
+            break;
+          case 'Mist':
+            $("i").addClass("wi-fog");
+            break;
+          default:
+            $("i").addClass("wi-na");
+        }
+
+        var skycons = new Skycons({
+          "color": "white"
+        });
+
+        //Skycon Icons
+        skycons.set("weatherIcon", weatherData.currently.icon);
+        skycons.set("expectIcon", weatherData.hourly.icon);
+        skycons.play();
           
       }); */
     }
