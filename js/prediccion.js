@@ -6,9 +6,12 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       tempInC = (respuesta.main.temp -273).toFixed(0);
-      /*feelsLikeInF = ((weatherData.currently.apparentTemperature * 9 / 5) + 32).toFixed(2); */
+      feelsLikeInF = (respuesta.main.feels_like - 273).toFixed(0);
       $(".locName").html(respuesta.name);
+      $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
+      $(".feelsLike").html(feelsLikeInF + " °C");
+      $(".windSpeed").html((respuesta.wind.Speed);
       $(".todaySummary").html(respuesta.weather[0].description);
 
       /* $.each(respuesta, function (indice, valor) {
@@ -22,6 +25,41 @@ $(document).ready(function () {
         $(".todaySummary").html(valor.weather);
         $(".tempMin").html(valor.main.temp_min + " °C");
         $(".tempMax").html(valor.main.temp_max + " °C");
+
+        switch (weather.main) {
+          case 'Clear':
+            $("i").addClass("wi-day-sunny");
+            break;
+          case 'Clouds':
+            $("i").addClass("wi-cloud");
+            break;
+          case 'Rain':
+            $("i").addClass("wi-rain");
+            break;
+          case 'Snow':
+            $("i").addClass("wi-snow");
+            break;
+          case 'Drizzle':
+            $("i").addClass("wi-raindrops");
+            break;
+          case 'Thunderstom':
+            $("i").addClass("wi-thunderstorm");
+            break;
+          case 'Mist':
+            $("i").addClass("wi-fog");
+            break;
+          default:
+            $("i").addClass("wi-na");
+        }
+
+        var skycons = new Skycons({
+          "color": "white"
+        });
+
+        //Skycon Icons
+        skycons.set("weatherIcon", weatherData.currently.icon);
+        skycons.set("expectIcon", weatherData.hourly.icon);
+        skycons.play();
           
       }); */
     }
