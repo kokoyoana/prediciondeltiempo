@@ -11,7 +11,8 @@ $(document).ready(function () {
       $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
       $(".feelsLike").html(feelsLikeInF + " °C");
-      $(".windSpeed").html((respuesta.wind.Speed);
+      $(".windSpeed").html(respuesta.wind.speed);
+      $(".humidity").html(respuesta.main.humidity);
       $(".todaySummary").html(respuesta.weather[0].description);
 
       /* $.each(respuesta, function (indice, valor) {
