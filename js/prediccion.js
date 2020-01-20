@@ -19,13 +19,13 @@ $(document).ready(function () {
 
       
       
-      var skycons = new Skycons({
+      var icons = new Skycons({
         "color": "white"
       });
 
-      skycons.set("weatherIcon",respuesta.main.icon);
+      icons.set("clear-day", Skycons.CLEAR_DAY);
       //skycons.set("expectIcon", weatherData.hourly.icon);
-      skycons.play();
+      icons.play();
 
       /* date=(respuesta.sys.sunrise);
       hour=date.getUTCHours() + ":" + date.getUTCMinutes();
