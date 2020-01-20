@@ -11,9 +11,30 @@ $(document).ready(function () {
       $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
       $(".feelsLike").html(feelsLikeInF + " °C");
-      $(".windSpeed").html((respuesta.wind.Speed));
+
+      $(".windSpeed").html(respuesta.wind.speed);
+      $(".humidity").html(respuesta.main.humidity);
       $(".todaySummary").html(respuesta.weather[0].description);
-      $(".weekDayTempMin1").html(respuesta.);
+      $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
+      $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
+
+      
+      
+      var icons = new Skycons({
+        "color": "white"
+      });
+
+      icons.set("clear-day", Skycons.CLEAR_DAY);
+      //skycons.set("expectIcon", weatherData.hourly.icon);
+      icons.play();
+
+      /* date=(respuesta.sys.sunrise);
+      hour=date.getUTCHours() + ":" + date.getUTCMinutes();
+      $(".sunriseTime").html(hour + " AM");
+ */
+
+
+
       /* $.each(respuesta, function (indice, valor) {
         
         $(".currentTemp").html(valor.temp);
@@ -63,9 +84,6 @@ $(document).ready(function () {
           
       }); */
     }
-    /* error: function(jqXHR, textStatus, errorThrown){
-       console.log("ERROR MIO:  " + errorThrown);
-     }*/
 
   });
 
@@ -80,6 +98,25 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       $.each(respuesta.list, function (indice, valor) {
+
+        $(".weekDayWind1").html(respuesta.list[0].wind.speed);
+        $(".weekDayWind2").html(respuesta.list[1].wind.speed);
+        $(".weekDayWind3").html(respuesta.list[2].wind.speed);
+        $(".weekDayWind4").html(respuesta.list[3].wind.speed);
+        $(".weekDayWind5").html(respuesta.list[4].wind.speed);
+        $(".weekDayHumid1").html(respuesta.list[0].main.humidity);
+        $(".weekDayHumid2").html(respuesta.list[1].main.humidity);
+        $(".weekDayHumid3").html(respuesta.list[2].main.humidity);
+        $(".weekDayHumid4").html(respuesta.list[3].main.humidity);
+        $(".weekDayHumid5").html(respuesta.list[4].main.humidity);
+        $(".weekDayCloud1").html(respuesta.list[0].clouds.all);
+        $(".weekDayCloud2").html(respuesta.list[1].clouds.all);
+        $(".weekDayCloud3").html(respuesta.list[2].clouds.all);
+        $(".weekDayCloud4").html(respuesta.list[3].clouds.all);
+        $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
+       
+
+    
 
         $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
           respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max) - 273).toFixed(0));
@@ -96,27 +133,6 @@ $(document).ready(function () {
         $(".weekDayTempMax5").html(Math.round(Math.max(respuesta.list[32].main.temp_max, respuesta.list[33].main.temp_max, respuesta.list[34].main.temp_max, respuesta.list[35].main.temp_max,
           respuesta.list[36].main.temp_max, respuesta.list[37].main.temp_max, respuesta.list[38].main.temp_max, respuesta.list[39].main.temp_max) - 273).toFixed(0));
 
-        //$("#dia3").html("Temperatura Actual: " + respuesta.list[0].main.temp + "<br>" + "Temperatura Mínima: " + valor.main.temp_min + "<br>" + "Temperatura Maxima: " + valor.main.temp_max);
-
-      });
-    }
-    /* error: function(jqXHR, textStatus, errorThrown){
-       console.log("ERROR MIO:  " + errorThrown);
-     }*/
-
-  });
-
-
-});
-
-$(document).ready(function () {
-  $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/forecast?id=3117732&APPID=5134da6df3842f1a831f92efeeb782c1",
-    datatype: "json",
-    type: "GET",
-    success: function (respuesta) {
-      console.log(respuesta);
-      $.each(respuesta.list, function (indice, valor) {
 
 
         $(".weekDayTempMin1").html(Math.round(Math.min(respuesta.list[0].main.temp_min, respuesta.list[1].main.temp_min, respuesta.list[2].main.temp_min, respuesta.list[3].main.temp_min,
@@ -133,13 +149,11 @@ $(document).ready(function () {
 
         $(".weekDayTempMin5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
           respuesta.list[36].main.temp_min, respuesta.list[37].main.temp_min, respuesta.list[38].main.temp_min, respuesta.list[39].main.temp_min) - 273).toFixed(0));
-        //$("#dia3").html("Temperatura Actual: " + respuesta.list[0].main.temp + "<br>" + "Temperatura Mínima: " + valor.main.temp_min + "<br>" + "Temperatura Maxima: " + valor.main.temp_max);
+
 
       });
     }
-    /* error: function(jqXHR, textStatus, errorThrown){
-       console.log("ERROR MIO:  " + errorThrown);
-     }*/
+
 
   });
 
