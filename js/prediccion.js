@@ -17,14 +17,21 @@ $(document).ready(function () {
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
-      date=(respuesta.sys.sunrise);
-      hour=date.getUTCHours() + ":" + date.getUTCMinutes();
-      var sunriseTimeFormatted = timeFormatted + " AM";
-      $(".sunriseTime").text(sunriseTimeFormatted);
+      
+      
+      var skycons = new Skycons({
+        "color": "white"
+      });
 
-      unixToTime(respuesta.sys.sunset);
-      var sunsetTimeFormatted = timeFormatted + " PM";
-      $(".sunsetTime").text(sunsetTimeFormatted);
+      skycons.set("weatherIcon",respuesta.main.icon);
+      //skycons.set("expectIcon", weatherData.hourly.icon);
+      skycons.play();
+
+      /* date=(respuesta.sys.sunrise);
+      hour=date.getUTCHours() + ":" + date.getUTCMinutes();
+      $(".sunriseTime").html(hour + " AM");
+ */
+
 
 
       /* $.each(respuesta, function (indice, valor) {
@@ -76,9 +83,6 @@ $(document).ready(function () {
           
       }); */
     }
-    /* error: function(jqXHR, textStatus, errorThrown){
-       console.log("ERROR MIO:  " + errorThrown);
-     }*/
 
   });
 
