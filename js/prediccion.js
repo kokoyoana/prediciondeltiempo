@@ -11,6 +11,7 @@ $(document).ready(function () {
       $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
       $(".feelsLike").html(feelsLikeInF + " °C");
+
       $(".windSpeed").html(respuesta.wind.speed);
       $(".humidity").html(respuesta.main.humidity);
       $(".todaySummary").html(respuesta.weather[0].description);
@@ -64,6 +65,7 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       $.each(respuesta.list, function (indice, valor) {
+
         $(".weekDayWind1").html(respuesta.list[0].wind.speed);
         $(".weekDayWind2").html(respuesta.list[1].wind.speed);
         $(".weekDayWind3").html(respuesta.list[2].wind.speed);
@@ -82,6 +84,7 @@ $(document).ready(function () {
        
 
     
+
         $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
           respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max) - 273).toFixed(0));
 
@@ -96,6 +99,7 @@ $(document).ready(function () {
 
         $(".weekDayTempMax5").html(Math.round(Math.max(respuesta.list[32].main.temp_max, respuesta.list[33].main.temp_max, respuesta.list[34].main.temp_max, respuesta.list[35].main.temp_max,
           respuesta.list[36].main.temp_max, respuesta.list[37].main.temp_max, respuesta.list[38].main.temp_max, respuesta.list[39].main.temp_max) - 273).toFixed(0));
+
 
 
         $(".weekDayTempMin1").html(Math.round(Math.min(respuesta.list[0].main.temp_min, respuesta.list[1].main.temp_min, respuesta.list[2].main.temp_min, respuesta.list[3].main.temp_min,
@@ -113,11 +117,12 @@ $(document).ready(function () {
         $(".weekDayTempMin5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
           respuesta.list[36].main.temp_min, respuesta.list[37].main.temp_min, respuesta.list[38].main.temp_min, respuesta.list[39].main.temp_min) - 273).toFixed(0));
 
+
       });
     }
 
 
   });
 
-
 });
+
