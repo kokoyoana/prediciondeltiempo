@@ -14,6 +14,8 @@ $(document).ready(function () {
       $(".windSpeed").html(respuesta.wind.speed);
       $(".humidity").html(respuesta.main.humidity);
       $(".todaySummary").html(respuesta.weather[0].description);
+      $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
+      $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
       /* $.each(respuesta, function (indice, valor) {
         
