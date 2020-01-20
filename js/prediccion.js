@@ -11,12 +11,8 @@ $(document).ready(function () {
       $(".weatherCondition").html(respuesta.weather[0].main);
       $(".currentTemp").html(tempInC);
       $(".feelsLike").html(feelsLikeInF + " °C");
-<<<<<<< HEAD
-      $(".windSpeed").html(respuesta.wind.Speed);
-=======
       $(".windSpeed").html(respuesta.wind.speed);
       $(".humidity").html(respuesta.main.humidity);
->>>>>>> b8e9930e86e3c5d9030cb49d8b416b2a1aabd261
       $(".todaySummary").html(respuesta.weather[0].description);
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
