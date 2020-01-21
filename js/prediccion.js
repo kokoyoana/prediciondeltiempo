@@ -38,7 +38,65 @@ $(document).ready(function () {
 
 });
 
+//Días
 
+var fecha = new Date();
+
+function diaSemana(){
+	switch(fecha.getDay()){
+		case 0:
+			return "Domingo";
+			break;
+		case 1:
+			return "Lunes";
+			break;
+		case 2:
+			return "Martes";
+			break;
+		case 3:
+			return "Miércoles";
+			break;
+		case 4:
+			return "Jueves";
+			break;
+		case 5:
+			return "Viernes";
+			break;
+		case 6:
+			return "Sábado";
+			break;
+	}
+}
+
+function proximosDias(){
+	switch(fecha.getDay()){
+		case 0:
+			return "Lunes,Martes,Miércoles,Jueves,Viernes";
+			break;
+		case 1:
+			return "Martes,Miércoles,Jueves,Viernes,Sábado";
+			break;
+		case 2:
+			return "Miércoles,Jueves,Viernes,Sábado,Domingo";
+			break;
+		case 3:
+			return "Jueves,Viernes,Sábado,Domingo,Lunes";
+			break;
+		case 4:
+			return "Viernes,Sábado,Domingo,Lunes,Martes";
+			break;
+		case 5:
+			return "Sábado,Domingo,Lunes,Martes,Miércoles";
+			break;
+		case 6:
+			return "Domingo,Lunes,Martes,Miércoles,Jueves";
+			break;
+	}
+}
+
+
+
+//Dias
 
 
 
