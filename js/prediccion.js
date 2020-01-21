@@ -96,13 +96,13 @@ function proximosDias(){
 
 var dias = proximosDias().split(",");
 
-document.getElementByID("diaActual").innerHTML = diaSemana();
+document.getElementById("diaActual").innerHTML = diaSemana();
 
-document.getElementByID("siguiente1").innerHTML = diaSemana();
-document.getElementByID("siguiente2").innerHTML = diaSemana();
-document.getElementByID("siguiente3").innerHTML = diaSemana();
-document.getElementByID("siguiente4").innerHTML = diaSemana();
-document.getElementByID("siguiente5").innerHTML = diaSemana();
+document.getElementById("siguiente1").innerHTML = dias[0];
+document.getElementById("siguiente2").innerHTML = dias[1];
+document.getElementById("siguiente3").innerHTML = dias[2];
+document.getElementById("siguiente4").innerHTML = dias[3];
+document.getElementById("siguiente5").innerHTML = dias[4];
 
 //Dias
 
