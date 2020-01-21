@@ -45,25 +45,25 @@ var fecha = new Date();
 function diaSemana(){
 	switch(fecha.getDay()){
 		case 0:
-			return "Domingo";
+			return "Sunday";
 			break;
 		case 1:
-			return "Lunes";
+			return "Monday";
 			break;
 		case 2:
-			return "Martes";
+			return "Tuesday";
 			break;
 		case 3:
-			return "Miércoles";
+			return "Wednesday";
 			break;
 		case 4:
-			return "Jueves";
+			return "Thursday";
 			break;
 		case 5:
-			return "Viernes";
+			return "Friday";
 			break;
 		case 6:
-			return "Sábado";
+			return "Saturday";
 			break;
 	}
 }
@@ -71,29 +71,32 @@ function diaSemana(){
 function proximosDias(){
 	switch(fecha.getDay()){
 		case 0:
-			return "Lunes,Martes,Miércoles,Jueves,Viernes";
+			return "Monday,Tuesday,Wednesday,Thursday,Friday";
 			break;
 		case 1:
-			return "Martes,Miércoles,Jueves,Viernes,Sábado";
+			return "Tuesday,Wednesday,Thursday,Friday,Saturday";
 			break;
 		case 2:
-			return "Miércoles,Jueves,Viernes,Sábado,Domingo";
+			return "Wednesday,Thursday,Friday,Saturday,Sunday";
 			break;
 		case 3:
-			return "Jueves,Viernes,Sábado,Domingo,Lunes";
+			return "Thursday,Friday,Saturday,Sunday,Monday";
 			break;
 		case 4:
-			return "Viernes,Sábado,Domingo,Lunes,Martes";
+			return "Friday,Saturday,Sunday,Monday,Tuesday";
 			break;
 		case 5:
-			return "Sábado,Domingo,Lunes,Martes,Miércoles";
+			return "Saturday,Sunday,Monday,Tuesday,Wednesday";
 			break;
 		case 6:
-			return "Domingo,Lunes,Martes,Miércoles,Jueves";
+			return "Sunday,Monday,Tuesday,Wednesday,Thursday";
 			break;
 	}
 }
 
+var dias = proximosDias().split(",");
+
+document.getElementByID("diaActual").innerHTML = diaSemana();
 
 
 //Dias
