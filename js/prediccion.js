@@ -98,6 +98,11 @@ var dias = proximosDias().split(",");
 
 document.getElementByID("diaActual").innerHTML = diaSemana();
 
+document.getElementByID("siguiente1").innerHTML = diaSemana();
+document.getElementByID("siguiente2").innerHTML = diaSemana();
+document.getElementByID("siguiente3").innerHTML = diaSemana();
+document.getElementByID("siguiente4").innerHTML = diaSemana();
+document.getElementByID("siguiente5").innerHTML = diaSemana();
 
 //Dias
 
