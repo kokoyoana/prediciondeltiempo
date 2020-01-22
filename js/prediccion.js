@@ -18,8 +18,8 @@ $(document).ready(function () {
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
-      
-      
+
+
       var icons = new Skycons({
         "color": "white"
       });
@@ -114,7 +114,6 @@ $(document).ready(function () {
         $(".weekDayCloud3").html(respuesta.list[2].clouds.all);
         $(".weekDayCloud4").html(respuesta.list[3].clouds.all);
         $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
-       
 
         /* var myProp = 'snow';
         if(myProp in respuesta){
@@ -188,4 +187,3 @@ $(document).ready(function () {
   });
 
 });
-
