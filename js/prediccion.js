@@ -116,7 +116,37 @@ $(document).ready(function () {
         $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
        
 
-    
+        /* var myProp = 'snow';
+        if(myProp in respuesta){
+            alert("yes, i have that property");
+        }else{
+          alert("no llueve");
+        } */
+
+        var lluvia = false;
+        var nieve = false;
+        for(var contador = 0; contador<respuesta.list.length; contador++){
+          if(typeof respuesta.list[contador].rain !== 'undefined'){
+            lluvia = true;
+          }
+          else if(typeof respuesta.list[contador].snow !== 'undefined'){
+            nieve = true;
+          }
+        }
+
+        if(lluvia){
+          console.log("Llueve");
+        }
+        else{
+          console.log("No llueve");
+          if(nieve){
+            console.log("Nieva");
+          }
+          else{
+            console.log("No nieva");
+          }
+        }  
+        
 
         $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
           respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max) - 273).toFixed(0));
