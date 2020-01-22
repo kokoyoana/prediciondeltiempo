@@ -84,11 +84,36 @@ $(document).ready(function () {
       } else if (weatherI == "02n" || weatherI == "03n") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_NIGHT);
       }; */
+      var lluvia = false;
+      var nieve = false;
+      for(var contador = 0; contador<respuesta.length; contador++){
+        if(typeof respuesta.list[contador].rain !== 'undefined'){
+          lluvia = true;
+        }
+        else if(typeof respuesta.list[contador].snow !== 'undefined'){
+          nieve = true;
+        }
+      }
+
+     /*  if(lluvia){
+        console.log("llueve");
+      }
+      else{
+        console.log("No llueve");
+        if(nieve){
+          console.log("Nieva");
+        }
+        else{
+          console.log("No nieva");
+        }
+      }  */ 
 
       },
   })
 
 });
+
+        
 
 //Días
 
@@ -179,9 +204,22 @@ $(document).ready(function () {
           $(".weekDayHumid" + DifInDays).html(forecast.main.humidity);
           $(".weekDayCloud" + DifInDays).html(forecast.clouds.all) 
           $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
+<<<<<<< HEAD
           $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));   
           
 
+=======
+          $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));     
+
+        /* var myProp = 'snow';
+        if(myProp in respuesta){
+            alert("yes, i have that property");
+        }else{
+          alert("no llueve");
+        } */
+
+       
+>>>>>>> 258e6c54377a3241009ebb814b895d8659ba8f3c
 
         /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
           forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));*/
