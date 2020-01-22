@@ -18,17 +18,9 @@ $(document).ready(function () {
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
-<<<<<<< HEAD
-
-
-      var icons = new Skycons({
-        "color": "white"
-      });
-=======
       unixToTime(respuesta.sys.sunrise);
       var sunriseTimeFormatted = timeFormatted + " AM";
       $(".sunriseTime").html(sunriseTimeFormatted);
->>>>>>> 658c311eda1ac246af09911adf537ceefcb5b8ab
 
       unixToTime(respuesta.sys.sunset);
       var sunsetTimeFormatted = timeFormatted + " PM";
