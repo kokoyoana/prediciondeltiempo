@@ -58,7 +58,73 @@ $(document).ready(function () {
 
 });
 
+//Días
 
+var fecha = new Date();
+
+function diaSemana(){
+	switch(fecha.getDay()){
+		case 0:
+			return "Sunday";
+			break;
+		case 1:
+			return "Monday";
+			break;
+		case 2:
+			return "Tuesday";
+			break;
+		case 3:
+			return "Wednesday";
+			break;
+		case 4:
+			return "Thursday";
+			break;
+		case 5:
+			return "Friday";
+			break;
+		case 6:
+			return "Saturday";
+			break;
+	}
+}
+
+function proximosDias(){
+	switch(fecha.getDay()){
+		case 0:
+			return "Monday,Tuesday,Wednesday,Thursday,Friday";
+			break;
+		case 1:
+			return "Tuesday,Wednesday,Thursday,Friday,Saturday";
+			break;
+		case 2:
+			return "Wednesday,Thursday,Friday,Saturday,Sunday";
+			break;
+		case 3:
+			return "Thursday,Friday,Saturday,Sunday,Monday";
+			break;
+		case 4:
+			return "Friday,Saturday,Sunday,Monday,Tuesday";
+			break;
+		case 5:
+			return "Saturday,Sunday,Monday,Tuesday,Wednesday";
+			break;
+		case 6:
+			return "Sunday,Monday,Tuesday,Wednesday,Thursday";
+			break;
+	}
+}
+
+var dias = proximosDias().split(",");
+
+document.getElementById("diaActual").innerHTML = diaSemana();
+
+document.getElementById("siguiente1").innerHTML = dias[0];
+document.getElementById("siguiente2").innerHTML = dias[1];
+document.getElementById("siguiente3").innerHTML = dias[2];
+document.getElementById("siguiente4").innerHTML = dias[3];
+document.getElementById("siguiente5").innerHTML = dias[4];
+
+//Dias
 
 
 
