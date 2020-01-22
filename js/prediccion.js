@@ -18,14 +18,34 @@ $(document).ready(function () {
       $(".tempMax").html(((respuesta.main.temp_max - 273).toFixed(0)) + " °C");
       $(".tempMin").html(((respuesta.main.temp_min - 273).toFixed(0)) + " °C");
 
-      icons = new Skycons({
+      unixToTime(respuesta.sys.sunrise);
+      var sunriseTimeFormatted = timeFormatted + " AM";
+      $(".sunriseTime").html(sunriseTimeFormatted);
+
+      unixToTime(respuesta.sys.sunset);
+      var sunsetTimeFormatted = timeFormatted + " PM";
+      $(".sunsetTime").html(sunsetTimeFormatted);
+
+
+
+      function unixToTime(unix) {
+        unix *= 1000;
+        var toTime = new Date(unix);
+        var hour = ((toTime.getHours() % 12 || 12) < 10 ? '0' : '') + (toTime.getHours() % 12 || 12);
+        var minute = (toTime.getMinutes() < 10 ? '0' : '') + toTime.getMinutes();
+        timeFormatted = hour + ":" + minute;
+        return timeFormatted;
+      }
+
+     /* icons = new Skycons({
         "color": "white"
       });
       weatherI = (respuesta.weather[0].icon);
       if (weatherI == "02d") {
+        $("#weatherIcon").attr('src="../img/sun-weather.gif"');
         
-        icons.set("weatherIcon", Skycons.CLEAR_DAY);
-      } /* else if (weatherI == "04d") {
+
+      }  else if (weatherI == "04d") {
         icons.set("weatherIcon", Skycons.CLEAR_NIGHT);
       } else if (weatherI == "02d" || weatherI == "03d") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_DAY);
@@ -64,58 +84,85 @@ $(document).ready(function () {
     type: "GET",
     success: function (respuesta) {
       console.log(respuesta);
-      $.each(respuesta.list, function (indice, valor) {
+      today = new Date();
+      actualDate = today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
+      console.log(actualDate);
+      $.each(respuesta.list, function (indice, forecast) {
+        if (forecast.dt_txt.substr(0, 10) != actualDate) {
+          newDate = new Date(forecast.dt_txt.substr(0, 10));
+          console.log(newDate);
+          Difference_In_Time = newDate.getTime() - today.getTime();
+          Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+          /*console.log(Difference_In_Days);*/
+          for (i=0; Difference_In_Days>=0; i++){
+            console.log(Difference_In_Days);
+            $(".weekDayWind1"+i).html(forecast.wind.speed);
 
-        $(".weekDayWind1").html(respuesta.list[0].wind.speed);
-        $(".weekDayWind2").html(respuesta.list[1].wind.speed);
-        $(".weekDayWind3").html(respuesta.list[2].wind.speed);
-        $(".weekDayWind4").html(respuesta.list[3].wind.speed);
-        $(".weekDayWind5").html(respuesta.list[4].wind.speed);
-        $(".weekDayHumid1").html(respuesta.list[0].main.humidity);
-        $(".weekDayHumid2").html(respuesta.list[1].main.humidity);
-        $(".weekDayHumid3").html(respuesta.list[2].main.humidity);
-        $(".weekDayHumid4").html(respuesta.list[3].main.humidity);
-        $(".weekDayHumid5").html(respuesta.list[4].main.humidity);
-        $(".weekDayCloud1").html(respuesta.list[0].clouds.all);
-        $(".weekDayCloud2").html(respuesta.list[1].clouds.all);
-        $(".weekDayCloud3").html(respuesta.list[2].clouds.all);
-        $(".weekDayCloud4").html(respuesta.list[3].clouds.all);
-        $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
+          }
+/* 
+          $(".weekDayWind1").html(forecast.wind.speed);
+          $(".weekDayWind2").html(forecast[1].wind.speed);
+          $(".weekDayWind3").html(forecast[2].wind.speed);
+          $(".weekDayWind4").html(forecast[3].wind.speed);
+          $(".weekDayWind5").html(forecast[4].wind.speed);
+          $(".weekDayHumid1").html(forecast[0].main.humidity);
+          $(".weekDayHumid2").html(forecast[1].main.humidity);
+          $(".weekDayHumid3").html(forecast[2].main.humidity);
+          $(".weekDayHumid4").html(forecast[3].main.humidity);
+          $(".weekDayHumid5").html(forecast[4].main.humidity);
+          $(".weekDayCloud1").html(forecast[0].clouds.all);
+          $(".weekDayCloud2").html(forecast[1].clouds.all);
+          $(".weekDayCloud3").html(forecast[2].clouds.all);
+          $(".weekDayCloud4").html(forecast[3].clouds.all);
+          $(".weekDayCloud5").html(forecast[4].clouds.all); */
+
+        }
+
+        
+        /* $(".weekDayName1").html(unixToWeekday(forecast[1].dt));
+        $(".weekDayName2").html(unixToWeekday(forecast[4].dt));
+        $(".weekDayName3").html(unixToWeekday(forecast[12].dt));
+        $(".weekDayName4").html(unixToWeekday(forecast[9].dt));
+        $(".weekDayName5").html(unixToWeekday(forecast[11].dt));
+          */
+        
+
+        /* for (i = 1; i < 7; i++) {
+        $(".weekDayName" + i).html(unixToWeekday(forecast[i].dt));
+        }
+ 
+        function unixToWeekday(unix) {
+          unix *= 1000;
+          var toWeekday = new Date(unix);
+          var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+          var weekday = days[toWeekday.getDay()];
+          return weekday;
+        } */
        
 
     
 
-        $(".weekDayTempMax1").html(Math.round(Math.max(respuesta.list[0].main.temp_max, respuesta.list[1].main.temp_max, respuesta.list[2].main.temp_max, respuesta.list[3].main.temp_max,
-          respuesta.list[4].main.temp_max, respuesta.list[5].main.temp_max, respuesta.list[6].main.temp_max, respuesta.list[7].main.temp_max) - 273).toFixed(0));
+        /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
+          forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));
+        $(".weekDayTempMax2").html(Math.round(Math.max(forecast[8].main.temp_max, forecast[9].main.temp_max, forecast[10].main.temp_max, forecast[11].main.temp_max,
+          forecast[12].main.temp_max, forecast[13].main.temp_max, forecast[14].main.temp_max, forecast[15].main.temp_max) - 273).toFixed(0));
+        $(".weekDayTempMax3").html(Math.round(Math.max(forecast[16].main.temp_max, forecast[17].main.temp_max, forecast[18].main.temp_max, forecast[19].main.temp_max,
+          forecast[20].main.temp_max, forecast[21].main.temp_max, forecast[22].main.temp_max, forecast[23].main.temp_max) - 273).toFixed(0));
+        $(".weekDayTempMax4").html(Math.round(Math.max(forecast[24].main.temp_max, forecast[25].main.temp_max, forecast[26].main.temp_max, forecast[27].main.temp_max,
+          forecast[28].main.temp_max, forecast[29].main.temp_max, forecast[30].main.temp_max, forecast[31].main.temp_max) - 273).toFixed(0));
+        $(".weekDayTempMax5").html(Math.round(Math.max(forecast[32].main.temp_max, forecast[33].main.temp_max, forecast[34].main.temp_max, forecast[35].main.temp_max,
+          forecast[36].main.temp_max, forecast[37].main.temp_max, forecast[38].main.temp_max, forecast[39].main.temp_max) - 273).toFixed(0));
 
-        $(".weekDayTempMax2").html(Math.round(Math.max(respuesta.list[8].main.temp_max, respuesta.list[9].main.temp_max, respuesta.list[10].main.temp_max, respuesta.list[11].main.temp_max,
-          respuesta.list[12].main.temp_max, respuesta.list[13].main.temp_max, respuesta.list[14].main.temp_max, respuesta.list[15].main.temp_max) - 273).toFixed(0));
-
-        $(".weekDayTempMax3").html(Math.round(Math.max(respuesta.list[16].main.temp_max, respuesta.list[17].main.temp_max, respuesta.list[18].main.temp_max, respuesta.list[19].main.temp_max,
-          respuesta.list[20].main.temp_max, respuesta.list[21].main.temp_max, respuesta.list[22].main.temp_max, respuesta.list[23].main.temp_max) - 273).toFixed(0));
-
-        $(".weekDayTempMax4").html(Math.round(Math.max(respuesta.list[24].main.temp_max, respuesta.list[25].main.temp_max, respuesta.list[26].main.temp_max, respuesta.list[27].main.temp_max,
-          respuesta.list[28].main.temp_max, respuesta.list[29].main.temp_max, respuesta.list[30].main.temp_max, respuesta.list[31].main.temp_max) - 273).toFixed(0));
-
-        $(".weekDayTempMax5").html(Math.round(Math.max(respuesta.list[32].main.temp_max, respuesta.list[33].main.temp_max, respuesta.list[34].main.temp_max, respuesta.list[35].main.temp_max,
-          respuesta.list[36].main.temp_max, respuesta.list[37].main.temp_max, respuesta.list[38].main.temp_max, respuesta.list[39].main.temp_max) - 273).toFixed(0));
-
-
-
-        $(".weekDayTempMin1").html(Math.round(Math.min(respuesta.list[0].main.temp_min, respuesta.list[1].main.temp_min, respuesta.list[2].main.temp_min, respuesta.list[3].main.temp_min,
-          respuesta.list[4].main.temp_min, respuesta.list[5].main.temp_min, respuesta.list[6].main.temp_min, respuesta.list[7].main.temp_min) - 273).toFixed(0));
-
-        $(".weekDayTempMin2").html(Math.round(Math.min(respuesta.list[8].main.temp_min, respuesta.list[9].main.temp_min, respuesta.list[10].main.temp_min, respuesta.list[11].main.temp_min,
-          respuesta.list[12].main.temp_min, respuesta.list[13].main.temp_min, respuesta.list[14].main.temp_min, respuesta.list[15].main.temp_min) - 273).toFixed(0));
-
-        $(".weekDayTempMin3").html(Math.round(Math.min(respuesta.list[16].main.temp_min, respuesta.list[17].main.temp_min, respuesta.list[18].main.temp_min, respuesta.list[19].main.temp_min,
-          respuesta.list[20].main.temp_min, respuesta.list[21].main.temp_min, respuesta.list[22].main.temp_min, respuesta.list[23].main.temp_min) - 273).toFixed(0));
-
-        $(".weekDayTempMin4").html(Math.round(Math.min(respuesta.list[24].main.temp_min, respuesta.list[25].main.temp_min, respuesta.list[26].main.temp_min, respuesta.list[27].main.temp_min,
-          respuesta.list[28].main.temp_min, respuesta.list[29].main.temp_min, respuesta.list[30].main.temp_min, respuesta.list[31].main.temp_min) - 273).toFixed(0));
-
-        $(".weekDayTempMin5").html(Math.round(Math.min(respuesta.list[32].main.temp_min, respuesta.list[33].main.temp_min, respuesta.list[34].main.temp_min, respuesta.list[35].main.temp_min,
-          respuesta.list[36].main.temp_min, respuesta.list[37].main.temp_min, respuesta.list[38].main.temp_min, respuesta.list[39].main.temp_min) - 273).toFixed(0));
+        $(".weekDayTempMin1").html(Math.round(Math.min(forecast[0].main.temp_min, forecast[1].main.temp_min, forecast[2].main.temp_min, forecast[3].main.temp_min,
+          forecast[4].main.temp_min, forecast[5].main.temp_min, forecast[6].main.temp_min, forecast[7].main.temp_min) - 273).toFixed(0));
+        $(".weekDayTempMin2").html(Math.round(Math.min(forecast[8].main.temp_min, forecast[9].main.temp_min, forecast[10].main.temp_min, forecast[11].main.temp_min,
+          forecast[12].main.temp_min, forecast[13].main.temp_min, forecast[14].main.temp_min, forecast[15].main.temp_min) - 273).toFixed(0));
+        $(".weekDayTempMin3").html(Math.round(Math.min(forecast[16].main.temp_min, forecast[17].main.temp_min, forecast[18].main.temp_min, forecast[19].main.temp_min,
+          forecast[20].main.temp_min, forecast[21].main.temp_min, forecast[22].main.temp_min, forecast[23].main.temp_min) - 273).toFixed(0));
+        $(".weekDayTempMin4").html(Math.round(Math.min(forecast[24].main.temp_min, forecast[25].main.temp_min, forecast[26].main.temp_min, forecast[27].main.temp_min,
+          forecast[28].main.temp_min, forecast[29].main.temp_min, forecast[30].main.temp_min, forecast[31].main.temp_min) - 273).toFixed(0));
+        $(".weekDayTempMin5").html(Math.round(Math.min(forecast[32].main.temp_min, forecast[33].main.temp_min, forecast[34].main.temp_min, forecast[35].main.temp_min,
+          forecast[36].main.temp_min, forecast[37].main.temp_min, forecast[38].main.temp_min, forecast[39].main.temp_min) - 273).toFixed(0)); */
 
 
       });
