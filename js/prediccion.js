@@ -112,6 +112,7 @@ $(document).ready(function () {
         $(".weekDayCloud3").html(respuesta.list[2].clouds.all);
         $(".weekDayCloud4").html(respuesta.list[3].clouds.all);
         $(".weekDayCloud5").html(respuesta.list[4].clouds.all);
+        
        
 
     
