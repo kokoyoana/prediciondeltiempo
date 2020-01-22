@@ -10,36 +10,26 @@ body {
 #dailyForecast {
   display: flex;
   vertical-align: middle;
-  margin-bottom: 50px; }
-  #dailyForecast .searchBar {
-    padding: 20px 0; }
-    #dailyForecast .searchBar #locSearchBox {
-      display: inline-block;
-      width: 100%;
-      font-size: 1em;
-      text-align: center;
-      border: none;
-      border-radius: 3px;
-      padding: 10px;
-      box-shadow: 0 0 15px 1px #bfa8bc;
-      transition: all 0.3s; }
-      #dailyForecast .searchBar #locSearchBox:focus {
-        outline: none;
-        box-shadow: 5px 5px 30px 5px #bfa8bc; }
-  #dailyForecast .tempBox {
+  margin-bottom: 50px; 
+}
+.tempBox {
     color: #fff;
     padding: 15px;
     margin-top: 20px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(160deg, #FBCA88, #EF69AD, #B236D0);
-    box-shadow: 0 0 25px 3px #bfa8bc; }
-    #dailyForecast .tempBox .currentTemp {
-      font-size: 5em; }
-    #dailyForecast .tempBox .unit {
-      font-size: 3em; }
-    #dailyForecast .tempBox p.m0 {
-      margin: 0; }
+    background: linear-gradient(130deg, #FBCA88, #EF69AD, #B236D0);
+    box-shadow: 0 0 25px 3px #bfa8bc; 
+  }
+  .tempBox .currentTemp {
+      font-size: 5em; 
+  }
+  .tempBox .unit {
+      font-size: 3em;
+  }
+  .tempBox p.m0 {
+      margin: 0; 
+  }
     #dailyForecast .tempBox .convertToggle .icon {
       position: relative;
       top: 4px; }
