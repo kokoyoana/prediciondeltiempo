@@ -22,7 +22,8 @@
                     <i class="icon ion-location"></i>
 					<p><span class="locName">Your Location Here</span></p>
 					<!-- <canvas id="clear-day" width="100" height="100"></canvas> -->
-                    <canvas id="weatherIcon" width="100" height="100"></canvas>
+					<!-- <canvas id="weatherIcon" width="100" height="100"></canvas> -->
+					<img src="" id="weatherIcon">
                     <p class="m0"><span class="weatherCondition">...</span></p>
                     <p class="m0"><span class="currentTemp"></span><span class="unit">°C</span></p>
                     <p class="feels"><i class="wi wi-barometer"></i> Feels Like: <span class="feelsLike">...</span></p>
@@ -67,17 +68,20 @@
                         <div class="col">
                             <p><i class="wi wi-raindrop"></i> <span class="dewPoint"></span></p>
                         </div>
-                    </div>
-                    <div class="row justify-content-center weeklyButton">
-                        <div class="col-12 col-md-5 wow fadeInUp" data-wow-delay="1s">
-                            <a href="#weeklyForecast" class="goToWeek">Weekly Forecast <i class="icon ion-ios-arrow-down"></i></a>
-                        </div>
-                    </div>
+					</div>
                 </div>
             </div>
         </div>
-        </div>
-    </section>
+		</div>
+		
+	</section>
+	
+	<div class="row justify-content-center weeklyButton">
+		<div class="col-12 col-md-5 wow fadeInUp" data-wow-delay="1s">
+			<a href="#weeklyForecast" class="goToWeek">Weekly Forecast <i class="icon ion-ios-arrow-down"></i></a>
+		</div>
+	</div>
+	
    <section id="weeklyForecast">
 		<div class="container">
 			<div class="row justify-content-center">
