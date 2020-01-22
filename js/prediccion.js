@@ -149,7 +149,37 @@ $(document).ready(function () {
           $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
           $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));     
 
-    
+        /* var myProp = 'snow';
+        if(myProp in respuesta){
+            alert("yes, i have that property");
+        }else{
+          alert("no llueve");
+        } */
+
+        var lluvia = false;
+        var nieve = false;
+        for(var contador = 0; contador<respuesta.list.length; contador++){
+          if(typeof respuesta.list[contador].rain !== 'undefined'){
+            lluvia = true;
+          }
+          else if(typeof respuesta.list[contador].snow !== 'undefined'){
+            nieve = true;
+          }
+        }
+
+        if(lluvia){
+          console.log("Llueve");
+        }
+        else{
+          console.log("No llueve");
+          if(nieve){
+            console.log("Nieva");
+          }
+          else{
+            console.log("No nieva");
+          }
+        }  
+        
 
         /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
           forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));*/
@@ -158,4 +188,3 @@ $(document).ready(function () {
     }
   });
 });
-
