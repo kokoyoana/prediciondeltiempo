@@ -27,7 +27,7 @@ $(document).ready(function () {
       $(".sunsetTime").html(sunsetTimeFormatted);
 
 
-
+// FUNCIÓN CAMBIO DE HORAS UNIX A 12H
       function unixToTime(unix) {
         unix *= 1000;
         var toTime = new Date(unix);
@@ -37,119 +37,47 @@ $(document).ready(function () {
         return timeFormatted;
       }
 
-     /* icons = new Skycons({
-        "color": "white"
-      });
+//FUNCIÓN LLUVIA
+      if (respuesta.sys.rain == undefined) {
+         $(".rainVol").html("no hubo lluvia la ultima hora");
+      } else {
+         $(".rainVol").html(respuesta.sys.rain["1h"]);
+      }
+
+//FUNCIÓN NIEVE
+      if (respuesta.sys.snow == undefined) {
+        $(".snowVol").html("no hubo nieve la ultima hora");
+      } else {
+        $(".snowVol").html(respuesta.sys.snow["1h"]);
+      }
+//FUNCIÓN ÍCONOS
+
       weatherI = (respuesta.weather[0].icon);
-      if (weatherI == "02d") {
-        $("#weatherIcon").attr('src="../img/sun-weather.gif"');
+      if (weatherI == "03d") {
+        $("#weatherIcon").addClass("wi wi-day-sunny");
         
 
-      }  else if (weatherI == "04d") {
+      } /* else if (weatherI == "04d") {
         icons.set("weatherIcon", Skycons.CLEAR_NIGHT);
       } else if (weatherI == "02d" || weatherI == "03d") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_DAY);
       } else if (weatherI == "02n" || weatherI == "03n") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_NIGHT);
       }; */
-      var lluvia = false;
-      var nieve = false;
-      for(var contador = 0; contador<respuesta.length; contador++){
-        if(typeof respuesta.list[contador].rain !== 'undefined'){
-          lluvia = true;
-        }
-        else if(typeof respuesta.list[contador].snow !== 'undefined'){
-          nieve = true;
-        }
-      }
-
-     /*  if(lluvia){
-        console.log("llueve");
-      }
-      else{
-        console.log("No llueve");
-        if(nieve){
-          console.log("Nieva");
-        }
-        else{
-          console.log("No nieva");
-        }
-      }  */ 
 
       },
   })
 
-});
+});     
 
-        
-
-//Días
-
-var fecha = new Date();
-
-function diaSemana(){
-	switch(fecha.getDay()){
-		case 0:
-			return "Sunday";
-			break;
-		case 1:
-			return "Monday";
-			break;
-		case 2:
-			return "Tuesday";
-			break;
-		case 3:
-			return "Wednesday";
-			break;
-		case 4:
-			return "Thursday";
-			break;
-		case 5:
-			return "Friday";
-			break;
-		case 6:
-			return "Saturday";
-			break;
-	}
-}
-
-function proximosDias(){
-	switch(fecha.getDay()){
-		case 0:
-			return "Monday,Tuesday,Wednesday,Thursday,Friday";
-			break;
-		case 1:
-			return "Tuesday,Wednesday,Thursday,Friday,Saturday";
-			break;
-		case 2:
-			return "Wednesday,Thursday,Friday,Saturday,Sunday";
-			break;
-		case 3:
-			return "Thursday,Friday,Saturday,Sunday,Monday";
-			break;
-		case 4:
-			return "Friday,Saturday,Sunday,Monday,Tuesday";
-			break;
-		case 5:
-			return "Saturday,Sunday,Monday,Tuesday,Wednesday";
-			break;
-		case 6:
-			return "Sunday,Monday,Tuesday,Wednesday,Thursday";
-			break;
-	}
-}
-
-var dias = proximosDias().split(",");
-
-document.getElementById("diaActual").innerHTML = diaSemana();
-
-document.getElementById("siguiente1").innerHTML = dias[0];
-document.getElementById("siguiente2").innerHTML = dias[1];
-document.getElementById("siguiente3").innerHTML = dias[2];
-document.getElementById("siguiente4").innerHTML = dias[3];
-document.getElementById("siguiente5").innerHTML = dias[4]; 
-
-//Dias         
+$(document).ready(function () {
+  $.ajax({
+    url: "http://api.openweathermap.org/data/2.5/weather?id=3117732&APPID=5134da6df3842f1a831f92efeeb782c1",
+    datatype: "json",
+    type: "GET",
+    success: function (respuesta) {
+      console.log(respuesta);
+      tempInC = (respuesta.main.temp);
  
 
 $(document).ready(function () {
@@ -173,20 +101,80 @@ $(document).ready(function () {
           $(".weekDayCloud" + DifInDays).html(forecast.clouds.all) 
           $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
           $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));     
-
-        /* var myProp = 'snow';
-        if(myProp in respuesta){
-            alert("yes, i have that property");
-        }else{
-          alert("no llueve");
-        } */
-
        
 
         /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
           forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));*/
-       
+          
+
       });
     }
   });
 });
+
+
+//FUNCIÓN DÍAS DE LA SEMANA
+
+var fecha = new Date();
+
+function diaSemana() {
+  switch (fecha.getDay()) {
+    case 0:
+      return "Sunday";
+      break;
+    case 1:
+      return "Monday";
+      break;
+    case 2:
+      return "Tuesday";
+      break;
+    case 3:
+      return "Wednesday";
+      break;
+    case 4:
+      return "Thursday";
+      break;
+    case 5:
+      return "Friday";
+      break;
+    case 6:
+      return "Saturday";
+      break;
+  }
+}
+
+function proximosDias() {
+  switch (fecha.getDay()) {
+    case 0:
+      return "Monday,Tuesday,Wednesday,Thursday,Friday";
+      break;
+    case 1:
+      return "Tuesday,Wednesday,Thursday,Friday,Saturday";
+      break;
+    case 2:
+      return "Wednesday,Thursday,Friday,Saturday,Sunday";
+      break;
+    case 3:
+      return "Thursday,Friday,Saturday,Sunday,Monday";
+      break;
+    case 4:
+      return "Friday,Saturday,Sunday,Monday,Tuesday";
+      break;
+    case 5:
+      return "Saturday,Sunday,Monday,Tuesday,Wednesday";
+      break;
+    case 6:
+      return "Sunday,Monday,Tuesday,Wednesday,Thursday";
+      break;
+  }
+}
+
+var dias = proximosDias().split(",");
+
+document.getElementById("diaActual").innerHTML = diaSemana();
+
+document.getElementById("siguiente1").innerHTML = dias[0];
+document.getElementById("siguiente2").innerHTML = dias[1];
+document.getElementById("siguiente3").innerHTML = dias[2];
+document.getElementById("siguiente4").innerHTML = dias[3];
+document.getElementById("siguiente5").innerHTML = dias[4];
