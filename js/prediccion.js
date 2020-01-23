@@ -27,7 +27,7 @@ $(document).ready(function () {
       $(".sunsetTime").html(sunsetTimeFormatted);
 
 
-
+// FUNCIÓN CAMBIO DE HORAS UNIX A 12H
       function unixToTime(unix) {
         unix *= 1000;
         var toTime = new Date(unix);
@@ -37,37 +37,19 @@ $(document).ready(function () {
         return timeFormatted;
       }
 
-      if (respuesta.rain !== 'undefined') {
-        console.log("llueve");
+//FUNCIÓN LLUVIA
+      if (respuesta.sys.rain == undefined) {
+         $(".rainVol").html("no hubo lluvia la ultima hora");
       } else {
-
-        console.log("yes, i have that property")
+         $(".rainVol").html(respuesta.sys.rain["1h"]);
       }
 
-      /*       var lluvia = false;
-            var nieve = false;
-            for(var contador = 0; contador<respuesta.list.length; contador++){
-              if(typeof respuesta.list[contador].rain !== 'undefined'){
-                lluvia = true;
-              }
-              else if(typeof respuesta.list[contador].snow !== 'undefined'){
-                nieve = true;
-              }
-            }
-
-            if(lluvia){
-              console.log("Llueve");
-            }
-            else{
-              console.log("No llueve");
-              if(nieve){
-                console.log("Nieva");
-              }
-              else{
-                console.log("No nieva");
-              }
-            }  
-             */
+//FUNCIÓN NIEVE
+      if (respuesta.sys.snow == undefined) {
+        $(".snowVol").html("no hubo nieve la ultima hora");
+      } else {
+        $(".snowVol").html(respuesta.sys.snow["1h"]);
+      }
 
      /* icons = new Skycons({
         "color": "white"
@@ -84,104 +66,11 @@ $(document).ready(function () {
       } else if (weatherI == "02n" || weatherI == "03n") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_NIGHT);
       }; */
-      var lluvia = false;
-      var nieve = false;
-      for(var contador = 0; contador<respuesta.length; contador++){
-        if(typeof respuesta.list[contador].rain !== 'undefined'){
-          lluvia = true;
-        }
-        else if(typeof respuesta.list[contador].snow !== 'undefined'){
-          nieve = true;
-        }
-      }
-
-     /*  if(lluvia){
-        console.log("llueve");
-      }
-      else{
-        console.log("No llueve");
-        if(nieve){
-          console.log("Nieva");
-        }
-        else{
-          console.log("No nieva");
-        }
-      }  */ 
 
       },
   })
 
-});
-
-        
-
-//Días
-
-var fecha = new Date();
-
-function diaSemana(){
-	switch(fecha.getDay()){
-		case 0:
-			return "Sunday";
-			break;
-		case 1:
-			return "Monday";
-			break;
-		case 2:
-			return "Tuesday";
-			break;
-		case 3:
-			return "Wednesday";
-			break;
-		case 4:
-			return "Thursday";
-			break;
-		case 5:
-			return "Friday";
-			break;
-		case 6:
-			return "Saturday";
-			break;
-	}
-}
-
-function proximosDias(){
-	switch(fecha.getDay()){
-		case 0:
-			return "Monday,Tuesday,Wednesday,Thursday,Friday";
-			break;
-		case 1:
-			return "Tuesday,Wednesday,Thursday,Friday,Saturday";
-			break;
-		case 2:
-			return "Wednesday,Thursday,Friday,Saturday,Sunday";
-			break;
-		case 3:
-			return "Thursday,Friday,Saturday,Sunday,Monday";
-			break;
-		case 4:
-			return "Friday,Saturday,Sunday,Monday,Tuesday";
-			break;
-		case 5:
-			return "Saturday,Sunday,Monday,Tuesday,Wednesday";
-			break;
-		case 6:
-			return "Sunday,Monday,Tuesday,Wednesday,Thursday";
-			break;
-	}
-}
-
-var dias = proximosDias().split(",");
-
-document.getElementById("diaActual").innerHTML = diaSemana();
-
-document.getElementById("siguiente1").innerHTML = dias[0];
-document.getElementById("siguiente2").innerHTML = dias[1];
-document.getElementById("siguiente3").innerHTML = dias[2];
-document.getElementById("siguiente4").innerHTML = dias[3];
-document.getElementById("siguiente5").innerHTML = dias[4]; 
-
-//Dias         
+});     
  
 
 $(document).ready(function () {
@@ -223,3 +112,70 @@ $(document).ready(function () {
     }
   });
 });
+
+
+//FUNCIÓN DÍAS DE LA SEMANA
+
+var fecha = new Date();
+
+function diaSemana() {
+  switch (fecha.getDay()) {
+    case 0:
+      return "Sunday";
+      break;
+    case 1:
+      return "Monday";
+      break;
+    case 2:
+      return "Tuesday";
+      break;
+    case 3:
+      return "Wednesday";
+      break;
+    case 4:
+      return "Thursday";
+      break;
+    case 5:
+      return "Friday";
+      break;
+    case 6:
+      return "Saturday";
+      break;
+  }
+}
+
+function proximosDias() {
+  switch (fecha.getDay()) {
+    case 0:
+      return "Monday,Tuesday,Wednesday,Thursday,Friday";
+      break;
+    case 1:
+      return "Tuesday,Wednesday,Thursday,Friday,Saturday";
+      break;
+    case 2:
+      return "Wednesday,Thursday,Friday,Saturday,Sunday";
+      break;
+    case 3:
+      return "Thursday,Friday,Saturday,Sunday,Monday";
+      break;
+    case 4:
+      return "Friday,Saturday,Sunday,Monday,Tuesday";
+      break;
+    case 5:
+      return "Saturday,Sunday,Monday,Tuesday,Wednesday";
+      break;
+    case 6:
+      return "Sunday,Monday,Tuesday,Wednesday,Thursday";
+      break;
+  }
+}
+
+var dias = proximosDias().split(",");
+
+document.getElementById("diaActual").innerHTML = diaSemana();
+
+document.getElementById("siguiente1").innerHTML = dias[0];
+document.getElementById("siguiente2").innerHTML = dias[1];
+document.getElementById("siguiente3").innerHTML = dias[2];
+document.getElementById("siguiente4").innerHTML = dias[3];
+document.getElementById("siguiente5").innerHTML = dias[4];
