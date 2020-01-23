@@ -27,7 +27,7 @@ $(document).ready(function () {
       $(".sunsetTime").html(sunsetTimeFormatted);
 
 
-// FUNCIÓN CAMBIO DE HORAS UNIX A 12H
+      // FUNCIÓN CAMBIO DE HORAS UNIX A 12H
       function unixToTime(unix) {
         unix *= 1000;
         var toTime = new Date(unix);
@@ -37,39 +37,51 @@ $(document).ready(function () {
         return timeFormatted;
       }
 
-//FUNCIÓN LLUVIA
+      //FUNCIÓN LLUVIA
       if (respuesta.sys.rain == undefined) {
-         $(".rainVol").html("no hubo lluvia la ultima hora");
+        $(".rainVol").html("no hubo lluvia la ultima hora");
       } else {
-         $(".rainVol").html(respuesta.sys.rain["1h"]);
+        $(".rainVol").html(respuesta.sys.rain["1h"]);
       }
 
-//FUNCIÓN NIEVE
+      //FUNCIÓN NIEVE
       if (respuesta.sys.snow == undefined) {
         $(".snowVol").html("no hubo nieve la ultima hora");
       } else {
         $(".snowVol").html(respuesta.sys.snow["1h"]);
       }
-//FUNCIÓN ÍCONOS
+      //FUNCIÓN ÍCONOS
 
       weatherI = (respuesta.weather[0].icon);
-      if (weatherI == "03d") {
+      if (weatherI == "01d") {
         $("#weatherIcon").addClass("wi wi-day-sunny");
-        
+      } else if (weatherI == "01n") {
+        $("#weatherIcon").addClass("wi wi-night-clear");
+      } else if (weatherI == "02d" || weatherI == "02n") {
+        $("#weatherIcon").addClass("wi wi-day-cloudy");
+      } else if (weatherI == "03d" || weatherI == "03n") {
+        $("#weatherIcon").addClass("wi wi-night-clear");
+      } else if (weatherI == "04d" || weatherI == "04n") {
+        $("#weatherIcon").addClass("wi wi-day-fog");
+      } else if (weatherI == "09d" || weatherI == "09n") {
+        $("#weatherIcon").addClass("wi wi-snow-winds");
+      } else if (weatherI == "10d" ||  weatherI == "10n") {
+        $("#weatherIcon").addClass("wi wi-snow");
+      } else if (weatherI == "11d" || weatherI == "11n") {
+        $("#weatherIcon").addClass("wi wi-lightning");
+      } else if (weatherI == "13d" || weatherI == "13n") {
+        $("#weatherIcon").addClass("wi wi-day-thunderstormd");
+      } else if (weatherI == "50d" || weatherI == "50n") {
+        $("#weatherIcon").addClass("wi wi-fog");
+      }
 
-      } /* else if (weatherI == "04d") {
-        icons.set("weatherIcon", Skycons.CLEAR_NIGHT);
-      } else if (weatherI == "02d" || weatherI == "03d") {
-        icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_DAY);
-      } else if (weatherI == "02n" || weatherI == "03n") {
-        icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_NIGHT);
-      }; */
+      ///////////////////////////////////////////////////////////////
 
-      },
+    },
   })
 
-});     
- 
+});
+
 
 $(document).ready(function () {
   $.ajax({
@@ -79,24 +91,24 @@ $(document).ready(function () {
     success: function (respuesta) {
       console.log(respuesta);
       today = new Date();
-      today.setHours(0,0,0,0);
+      today.setHours(0, 0, 0, 0);
       $.each(respuesta.list, function (indice, forecast) {
-          newDate = new Date(forecast.dt_txt);
-          newDate.setHours(0, 0, 0, 0);
-          DifInTime = newDate - today;
-          DifInDays = DifInTime / (1000 * 3600 * 24);
-          console.log(DifInDays);
-        
-          $(".weekDayWind" + DifInDays).html(forecast.wind.speed);
-          $(".weekDayHumid" + DifInDays).html(forecast.main.humidity);
-          $(".weekDayCloud" + DifInDays).html(forecast.clouds.all) 
-          $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
-          $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));     
-       
+        newDate = new Date(forecast.dt_txt);
+        newDate.setHours(0, 0, 0, 0);
+        DifInTime = newDate - today;
+        DifInDays = DifInTime / (1000 * 3600 * 24);
+        console.log(DifInDays);
+
+        $(".weekDayWind" + DifInDays).html(forecast.wind.speed);
+        $(".weekDayHumid" + DifInDays).html(forecast.main.humidity);
+        $(".weekDayCloud" + DifInDays).html(forecast.clouds.all)
+        $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
+        $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));
+
 
         /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
           forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));*/
-          
+
 
       });
     }
