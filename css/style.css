@@ -24,18 +24,25 @@ body {
   .tempBox .locName{
     font-size: 3.5em;
   }
+  #weatherIcon{
+    font-size: 6em;
+  }
   .tempBox .weekDayName0{
     font-size: 2.8em;
   }
   .tempBox .currentTemp {
       font-size: 8em; 
+      text-align: center;
+      
   }
   .tempBox .unit {
       font-size: 5em;
+      text-align: center;
   }
-  .tempBox p.m0 {
-      margin: 0; 
-  }
+  .tempBox p.m1 {
+      margin: 0;
+      height: 10em;
+  } 
     #dailyForecast .tempBox .weatherCondition {
       font-size: 2.5em; }
     #dailyForecast .tempBox .tempBoxSubInfo {
