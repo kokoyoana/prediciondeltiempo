@@ -27,7 +27,6 @@ $(document).ready(function () {
       $(".sunsetTime").html(sunsetTimeFormatted);
 
 
-
       function unixToTime(unix) {
         unix *= 1000;
         var toTime = new Date(unix);
