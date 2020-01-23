@@ -176,7 +176,8 @@ body {
           font-weight: bold; }
         #weeklyForecast .weekRows .dayCard .dayInfoHighlight .weekDaySummary {
           height: 50px;
-          margin-bottom: 20px; }
+          margin-bottom: 20px;
+          font-size: 1.8em; }
           #weeklyForecast .weekRows .dayCard .dayInfoHighlight .weekDaySummary p {
             margin: 0; }
         #weeklyForecast .weekRows .dayCard .dayInfoHighlight .weekDaySun p {
