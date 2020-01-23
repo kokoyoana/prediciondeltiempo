@@ -50,16 +50,14 @@ $(document).ready(function () {
       } else {
         $(".snowVol").html(respuesta.sys.snow["1h"]);
       }
+//FUNCIÓN ÍCONOS
 
-     /* icons = new Skycons({
-        "color": "white"
-      });
       weatherI = (respuesta.weather[0].icon);
-      if (weatherI == "02d") {
-        $("#weatherIcon").attr('src="../img/sun-weather.gif"');
+      if (weatherI == "03d") {
+        $("#weatherIcon").addClass("wi wi-day-sunny");
         
 
-      }  else if (weatherI == "04d") {
+      } /* else if (weatherI == "04d") {
         icons.set("weatherIcon", Skycons.CLEAR_NIGHT);
       } else if (weatherI == "02d" || weatherI == "03d") {
         icons.set("weatherIcon", Skycons.PARTLY_CLOUDY_DAY);
