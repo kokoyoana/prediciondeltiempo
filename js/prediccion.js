@@ -94,14 +94,6 @@ $(document).ready(function () {
           $(".weekDayCloud" + DifInDays).html(forecast.clouds.all) 
           $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
           $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));     
-
-        /* var myProp = 'snow';
-        if(myProp in respuesta){
-            alert("yes, i have that property");
-        }else{
-          alert("no llueve");
-        } */
-
        
 
         /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
