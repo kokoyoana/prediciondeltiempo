@@ -5,7 +5,7 @@ body {
   margin: 0; }
 
 .icon {
-  font-size: 3em; }
+  font-size: 1.5em; }
 
 #dailyForecast {
   display: flex;
@@ -18,7 +18,7 @@ body {
     margin-top: 20px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(160deg, #D91A4D, #BF1584, #7007D9, #0FBF8D, #D98A29);
+    background: linear-gradient(130deg, #FBCA88, #EF69AD, #B236D0);
     box-shadow: 0 0 25px 3px #bfa8bc; 
   }
   .tempBox .locName{
@@ -46,22 +46,21 @@ body {
     font-size: 2.8em;
   }
   .tempBox .currentTemp {
-      font-size: 8em; 
-      text-align: center;
-      
+      font-size: 5em; 
   }
   .tempBox .unit {
-      font-size: 5em;
-      text-align: center;
+      font-size: 3em;
   }
-  .tempBox p.m1 {
-      margin: 0;
-      height: 10em;
-  } 
+  .tempBox p.m0 {
+      margin: 0; 
+  }
+    #dailyForecast .tempBox .convertToggle .icon {
+      position: relative;
+      top: 4px; }
     #dailyForecast .tempBox .weatherCondition {
-      font-size: 2.5em; }
+      font-size: 3em; }
     #dailyForecast .tempBox .tempBoxSubInfo {
-      font-size: 1.2em;
+      font-size: 0.8em;
       padding: 20px 0 0; }
       #dailyForecast .tempBox .tempBoxSubInfo p {
         margin: 0; }
@@ -97,7 +96,7 @@ body {
         position: relative;
         color: #fff;
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.2em;
         display: flex;
         align-items: center;
         z-index: 2;
@@ -123,7 +122,24 @@ body {
       margin-top: 5%;
       font-size: 1em;
       font-weight: bold; }
-   
+    #dailyForecast .dashboard .weeklyButton {
+      margin-top: 5%; }
+      #dailyForecast .dashboard .weeklyButton a {
+        padding: 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+        background-image: linear-gradient(220deg, #ec77ab, #7873f5);
+        box-shadow: 0 0 25px 3px #bfa8bc;
+        transition: 0.5s; }
+        #dailyForecast .dashboard .weeklyButton a:hover {
+          box-shadow: 5px 5px 25px 6px #bfa8bc; }
+        #dailyForecast .dashboard .weeklyButton a i {
+          font-size: 1.2em;
+          position: relative;
+          top: 3px; }
+
 #weeklyForecast {
   padding: 20px 0 30px; }
   #weeklyForecast h3 {
@@ -137,9 +153,8 @@ body {
       border-radius: 5px; }
       #weeklyForecast .weekRows .dayCard p {
         display: inline-block; }
-
       #weeklyForecast .weekRows .dayCard .dayIconHighlight {
-        background-color:  #B236D0;
+        background-color: #1343B9;
         color: #fff;
         padding: 30px 10px 10px; }
         #weeklyForecast .weekRows .dayCard .dayIconHighlight .dayMaxMin {
