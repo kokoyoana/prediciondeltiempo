@@ -39,14 +39,14 @@ $(document).ready(function () {
 
       //FUNCIÓN LLUVIA
       if (respuesta.sys.rain == undefined) {
-        $(".rainVol").html("no hubo lluvia la ultima hora");
+        $(".rainVol").html("No hubo lluvia la ultima hora");
       } else {
         $(".rainVol").html(respuesta.sys.rain["1h"]);
       }
 
       //FUNCIÓN NIEVE
       if (respuesta.sys.snow == undefined) {
-        $(".snowVol").html("no hubo nieve la ultima hora");
+        $(".snowVol").html("No hubo nieve la ultima hora");
       } else {
         $(".snowVol").html(respuesta.sys.snow["1h"]);
       }
@@ -105,9 +105,6 @@ $(document).ready(function () {
         $(".weekDayTempMax" + DifInDays).html(((forecast.main.temp_max) - 273).toFixed(0));
         $(".weekDayTempMin" + DifInDays).html(((forecast.main.temp_min) - 273).toFixed(0));
 
-
-        /* $(".weekDayTempMax1").html(Math.round(Math.max(forecast[0].main.temp_max, forecast[1].main.temp_max, forecast[2].main.temp_max, forecast[3].main.temp_max,
-          forecast[4].main.temp_max, forecast[5].main.temp_max, forecast[6].main.temp_max, forecast[7].main.temp_max) - 273).toFixed(0));*/
 
 
       });
