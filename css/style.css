@@ -18,7 +18,7 @@ body {
     margin-top: 20px;
     font-weight: bold;
     border-radius: 8px;
-    background: linear-gradient(130deg, #FBCA88, #EF69AD, #B236D0);
+    background: linear-gradient(160deg, #D91A4D, #BF1584, #7007D9, #0FBF8D, #D98A29);
     box-shadow: 0 0 25px 3px #bfa8bc; 
   }
   .tempBox .locName{
@@ -122,8 +122,9 @@ body {
       border-radius: 5px; }
       #weeklyForecast .weekRows .dayCard p {
         display: inline-block; }
+
       #weeklyForecast .weekRows .dayCard .dayIconHighlight {
-        background-color: #1343B9;
+        background-color:  #B236D0;
         color: #fff;
         padding: 30px 10px 10px; }
         #weeklyForecast .weekRows .dayCard .dayIconHighlight .dayMaxMin {
