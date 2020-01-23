@@ -2,84 +2,71 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Local Weather Viewer</title>
-    <link rel="shortcut icon" href="favicon.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Local Weather Viewer</title>
+	<link rel="shortcut icon" href="favicon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <section id="dailyForecast">
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-10 col-lg-5 tempBox text-center">
-                    <i class="icon ion-location"></i>
+	<section id="dailyForecast">
+		<div class="container">
+			<div class="row justify-content-around">
+				<div class="col-10 col-lg-5 tempBox text-center">
+					<i class="icon ion-location"></i>
 					<p><span class="locName">Your Location Here</span></p>
 					<p id="diaActual" class="weekDayName0"></p>
-					<!-- <canvas id="clear-day" width="100" height="100"></canvas> -->
-					<!-- <canvas id="weatherIcon" width="100" height="100"></canvas> -->
 					<img src="" id="weatherIcon">
-                    <p class="m0"><span class="weatherCondition">...</span></p>
-                    <p class="m0"><span class="currentTemp"></span><span class="unit">°C</span></p>
-                    <p class="feels"><i class="wi wi-barometer"></i> Feels Like: <span class="feelsLike">...</span></p>
-                    <div class="row tempBoxSubInfo">
-                        <div class="col">
-                            <p><i class="wi wi-windy"></i>
-                                Wind Speed: <span class="windSpeed">...</span> m/s
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p><i class="wi wi-humidity"></i>
-                                Humidity: <span class="humidity">...</span> %
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center dashboardDaily">
-                        <div class="col-3 tempMaxBox">
-                            <p><i class="wi wi-thermometer left"></i><br>
-                                <span class="tempMax text-left"></span>
-                            </p>
-                        </div>
-                        <div class="col-6 expect text-center">
-                            <canvas id="expectIcon" width="80" height="80"></canvas> <br>
-                            <p class="text-center thin">Expect <span class="todaySummary">...</span></p>
-                        </div>
-                        <div class="col-3 tempMinBox">
-                            <p><span class="tempMin text-right"></span><br>
-                                <i class="wi wi-thermometer-exterior right"></i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row sunTimes justify-content-center">
-                        <div class="col sunrise">
-                            <p><i class="wi wi-sunrise"></i> <span class="sunriseTime"></span></p>
-                        </div>
-                        <div class="col sunset">
-                            <p><i class="wi wi-sunset"></i> <span class="sunsetTime"></span></p>
-                        </div>
-                        <div class="col">
-                            <p><i class="wi wi-day-cloudy-high"></i> <span class="cloudCover"></span></p>
-                        </div>
-                        <div class="col">
-                            <p><i class="wi wi-raindrop"></i> <span class="dewPoint"></span></p>
-                        </div>
+					<p class="m0"><span class="weatherCondition">...</span></p>
+					<p class="m1"><span class="currentTemp"></span><span class="unit">°C</span></p>
+					<p class="feels"><i class="wi wi-barometer"></i> Feels Like: <span class="feelsLike">...</span></p>
+					<div class="row tempBoxSubInfo">
+						<div class="col">
+							<p><i class="wi wi-thermometer"></i>
+								Tem Max: <span class="tempMax">...</span>
+							</p>
+							<p><i class="wi wi-windy"></i>
+								Wind Speed: <span class="windSpeed">...</span> m/s
+							</p>	
+						</div>
+						<div class="col">
+							<p><i class="wi wi-thermometer-exterior"></i>
+								Tem Max: <span class="tempMin">...</span>
+							</p>
+							<p><i class="wi wi-humidity"></i>
+								Humidity: <span class="humidity">...</span> %
+							</p>
+						</div>
 					</div>
-                </div>
-            </div>
-        </div>
+					<br>
+					<div class="row sunTimes justify-content-center">
+						<div class="col sunrise">
+							<p><i class="wi wi-sunrise"></i> <span class="sunriseTime"></span></p>
+						</div>
+						<div class="col sunset">
+							<p><i class="wi wi-sunset"></i> <span class="sunsetTime"></span></p>
+						</div>
+						<div class="col">
+							<p><i class="wi wi-rain"></i> <span class="rainVol"></span></p>
+						</div>
+						<div class="col">
+							<p><i class="wi wi-snow"></i> <span class="snowVol"></span></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-	</section>
-	
+		</div>
 
-	
-   <section id="weeklyForecast">
+	</section>
+
+	<section id="weeklyForecast">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-10 text-center">
@@ -88,13 +75,15 @@
 			</div>
 
 			<div class="row justify-content-around weekRows">
-				<div class="col-10 col-lg-5 dayCard text-center wow fadeInUp"  data-wow-delay="0.2s">
+				<div class="col-10 col-lg-5 dayCard text-center wow fadeInUp" data-wow-delay="0.2s">
 					<div class="row">
 						<div class="col-5 dayIconHighlight">
 							<canvas id="weatherIcon1" width="100" height="100"></canvas>
 							<div class="dayMaxMin">
-								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax1"></span>°C</p>
-								<p><span class="weekDayTempMin1"></span>°C<i class="icon ion-arrow-graph-down-right"></i></p>
+								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax1"></span>°C
+								</p>
+								<p><span class="weekDayTempMin1"></span>°C<i
+										class="icon ion-arrow-graph-down-right"></i></p>
 							</div>
 						</div>
 						<div class="col-7 dayInfoHighlight">
@@ -105,7 +94,7 @@
 							</div>
 							<div class="row">
 								<div class="col-12 weekDaySummary">
-									
+
 								</div>
 							</div>
 							<div class="row">
@@ -130,8 +119,10 @@
 						<div class="col-5 dayIconHighlight">
 							<canvas id="weatherIcon2" width="100" height="100"></canvas>
 							<div class="dayMaxMin">
-								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax2"></span>°C</p>
-								<p><span class="weekDayTempMin2"></span>°C<i class="icon ion-arrow-graph-down-right"></i></p>
+								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax2"></span>°C
+								</p>
+								<p><span class="weekDayTempMin2"></span>°C<i
+										class="icon ion-arrow-graph-down-right"></i></p>
 							</div>
 						</div>
 						<div class="col-7 dayInfoHighlight">
@@ -142,7 +133,7 @@
 							</div>
 							<div class="row">
 								<div class="col-12 weekDaySummary">
-								
+
 								</div>
 							</div>
 							<div class="row">
@@ -169,8 +160,10 @@
 						<div class="col-5 dayIconHighlight">
 							<canvas id="weatherIcon3" width="100" height="100"></canvas>
 							<div class="dayMaxMin">
-								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax3"></span>°C</p>
-								<p><span class="weekDayTempMin3"></span>°C<i class="icon ion-arrow-graph-down-right"></i></p>
+								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax3"></span>°C
+								</p>
+								<p><span class="weekDayTempMin3"></span>°C<i
+										class="icon ion-arrow-graph-down-right"></i></p>
 							</div>
 						</div>
 						<div class="col-7 dayInfoHighlight">
@@ -181,7 +174,7 @@
 							</div>
 							<div class="row">
 								<div class="col-12 weekDaySummary">
-								
+
 								</div>
 							</div>
 							<div class="row">
@@ -201,13 +194,15 @@
 					</div>
 				</div>
 
-				<div class="col-10 col-lg-5 dayCard text-center wow fadeInUp"  data-wow-delay="0.4s">
+				<div class="col-10 col-lg-5 dayCard text-center wow fadeInUp" data-wow-delay="0.4s">
 					<div class="row">
 						<div class="col-5 dayIconHighlight">
 							<canvas id="weatherIcon4" width="100" height="100"></canvas>
 							<div class="dayMaxMin">
-								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax4"></span>°C</p>
-								<p><span class="weekDayTempMax4"></span>°C<i class="icon ion-arrow-graph-down-right"></i></p>
+								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax4"></span>°C
+								</p>
+								<p><span class="weekDayTempMax4"></span>°C<i
+										class="icon ion-arrow-graph-down-right"></i></p>
 							</div>
 						</div>
 						<div class="col-7 dayInfoHighlight">
@@ -245,8 +240,10 @@
 						<div class="col-5 dayIconHighlight">
 							<canvas id="weatherIcon5" width="100" height="100"></canvas>
 							<div class="dayMaxMin">
-								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax5"></span>°C</p>
-								<p><span class="weekDayTempMax5"></span>°C<i class="icon ion-arrow-graph-down-right"></i></p>
+								<p><i class="icon ion-arrow-graph-up-left"></i><span class="weekDayTempMax5"></span>°C
+								</p>
+								<p><span class="weekDayTempMax5"></span>°C<i
+										class="icon ion-arrow-graph-down-right"></i></p>
 							</div>
 						</div>
 						<div class="col-7 dayInfoHighlight">
@@ -257,7 +254,7 @@
 							</div>
 							<div class="row">
 								<div class="col-12 weekDaySummary">
-								
+
 								</div>
 							</div>
 							<div class="row">
@@ -279,14 +276,18 @@
 			</div>
 		</div>
 	</section> -->
-    <!-- Scripts -->
-    <script rel="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-	<script type="text/javascript">new WOW().init();</script> -->
+	<!-- Scripts -->
+	<script rel="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	<script type="text/javascript">
+		new WOW().init();
+	</script> -->
 	<script type="text/javascript" src="js/prediccion.js"></script>
 	<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
 

@@ -70,15 +70,8 @@ $(document).ready(function () {
 
 });     
 
-$(document).ready(function () {
-  $.ajax({
-    url: "http://api.openweathermap.org/data/2.5/weather?id=3117732&APPID=5134da6df3842f1a831f92efeeb782c1",
-    datatype: "json",
-    type: "GET",
-    success: function (respuesta) {
-      console.log(respuesta);
-      tempInC = (respuesta.main.temp);
- 
+
+
 
 $(document).ready(function () {
   $.ajax({
